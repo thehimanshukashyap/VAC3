@@ -44,12 +44,12 @@ def test():
     c = a + b
     return { "message": "Test API", "total": c }
 
-@app.get("/users", status_code=200)
-def get_users(x_api_key: str = None, city: str = None):
-    with Session(engine) as session:
-        users = session.query(Users).all()
-        # print(f'users list {users}')
-        return { "message": "Users list", "data": users, "header": x_api_key }
+# @app.get("/users", status_code=200)
+# def get_users(x_api_key: str = None, city: str = None):
+#     with Session(engine) as session:
+#         users = session.query(Users).all()
+#         # print(f'users list {users}')
+#         return { "message": "Users list", "data": users, "header": x_api_key }
 
 @app.get("/users/{user_id}") # GET baseUrl/users/1
 def get_user_by_id(user_id: int):
