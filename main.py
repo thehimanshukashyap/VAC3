@@ -45,7 +45,7 @@ def test():
     return { "message": "Test API", "total": c }
 
 @app.get("/users", status_code=200)
-def get_users(x_api_key: Annotated[str | None, Header()] = None, city: str = None):
+def get_users(x_api_key: str = None, city: str = None):
     with Session(engine) as session:
         users = session.query(Users).all()
         # print(f'users list {users}')
